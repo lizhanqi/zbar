@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#00000000"
+        app:title="扫码"></android.support.v7.widget.Toolbar>
+    <RelativeLayout
+        android:id="@+id/capture_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <!--预览视图-->
+        <cn.lzq.zbarscanner.zbar.ZBarScannerView
+            android:id="@+id/zsanView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        </cn.lzq.zbarscanner.zbar.ZBarScannerView>
+        <TextView
+            android:textColor="@android:color/white"
+            android:id="@+id/capture_mask_top"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_alignParentTop="true"
+            android:gravity="center"
+            android:text="温馨提示:请将二维码放入框内与框边缘保持一定距离"
+            android:textSize="10sp" />
+        <RelativeLayout
+            android:layout_below="@id/capture_mask_top"
+            android:id="@+id/capture_crop_view"
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/qr_code_bg">
+            <ImageView
+                android:id="@+id/capture_scan_line"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:src="@drawable/scan_line" />
+            <ImageView
+                android:id="@+id/img_flashlight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:padding="10dp"
+                android:src="@drawable/flashlight_off" />
+        </RelativeLayout>
+        <ImageView
+            android:visibility="gone"
+            android:rotation="90"
+            android:layout_alignParentBottom="true"
+            android:layout_centerInParent="true"
+            android:id="@+id/capture_mask_bottom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+    </RelativeLayout>
+</LinearLayout>
