@@ -40,6 +40,10 @@ public class ScanActivity extends AppCompatActivity {
      * 是否开启显示裁剪结果:
      */
     public static boolean isDebug;
+    /**
+     * 是否按照最大宽度取值二维码
+     */
+    public static boolean maxWidth;
     private RelativeLayout scanCropView;
     private ImageView scanLine;
     private ImageView cropView;
@@ -194,6 +198,7 @@ public class ScanActivity extends AppCompatActivity {
         scanLine = (ImageView) findViewById(R.id.capture_scan_line);
         scanLine.setAnimation(animation);
         zBarScannerView = (ZBarScannerView) findViewById(R.id.zsanView);
+        zBarScannerView.setMaxWidth(maxWidth);
         zBarScannerView.setResultHandler(new ZBarScannerView.ResultHandler() {
             @Override
             public void handleResult(Result rawResult) {
